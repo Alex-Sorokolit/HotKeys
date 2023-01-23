@@ -1,35 +1,74 @@
+import { useState, useEffect } from 'react';
 import Select from 'react-select';
-export const Form = () => {
-  // Очистка інпутів (через очистку стейту)
-  const reset = () => {
-    // setName('');
-    // setNumber('');
-  };
+import css from './Form.module.css';
+
+export const Form = ({ categories }) => {
+  const [options, setOptions] = useState([]);
+
+  useEffect(() => {
+    const makeOptions = () => {
+      return categories.map(category => ({
+        value: category.id,
+        label: category.category,
+      }));
+    };
+    setOptions(makeOptions);
+
+    // const reset = () => {
+    //   // setName('');
+    //   // setNumber('');
+    // };
+  }, [categories]);
+
   const handleSubmit = event => {
     event.preventDefault();
-    const form = event.target;
+    // const form = event.target;
     // Очистка форми
-    reset();
+    // reset();
   };
+
   return (
     <section>
-      <form onSubmit={handleSubmit} style={{ display: 'flex' }}>
-        <label>
-          Category
-          <Select
-          // options={options}
-          // onChange={this.handleChange}
-          />
-        </label>
-        <label>
-          ShortCut
-          <input type="text" name="shortcut" required />
-        </label>
-        <label>
-          Description
-          <input type="text" name="description" required />
-        </label>
-        <button type="submit">Add</button>
+      <form className={css.form} onSubmit={handleSubmit}>
+        <div>
+          <label className={css.label}>
+            Category
+            <Select
+              options={options}
+              required
+              // onChange={this.handleChange}
+            />
+          </label>
+        </div>
+        <div>
+          <label>
+            ShortCut
+            <div>
+              <input
+                className={css.input}
+                type="text"
+                name="shortcut"
+                required
+              />
+            </div>
+          </label>
+        </div>
+        <div className={css.desc}>
+          <label>
+            Description
+            <div>
+              <input
+                className={css.inputDesc}
+                type="text"
+                name="description"
+                required
+              />
+            </div>
+          </label>
+        </div>
+        <button className={css.button} type="submit">
+          Add
+        </button>
       </form>
     </section>
   );

@@ -1,0 +1,22 @@
+.item {
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+  height: 38px;
+  border: 1px solid grey;
+  border-radius: 4px;
+  padding: 5px;
+}
+
+.item:not(:last-child) {
+  margin-bottom: 2px;
+}
+
+.shortCut {
+  margin-right: 5px;
+  font-weight: 700;
+}
+
+.description {
+  text-align: start;
+  color: grey;
+}
