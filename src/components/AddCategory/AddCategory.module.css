@@ -1,0 +1,11 @@
+.form {
+  display: flex;
+  align-items: flex-end;
+}
+.input {
+  height: 38px;
+}
+.button {
+  height: 38px;
+  color: green;
+}

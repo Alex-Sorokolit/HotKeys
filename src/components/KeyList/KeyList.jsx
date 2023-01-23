@@ -1,12 +1,12 @@
 import { Item } from 'components/Item/Item';
 import css from './KeyList.module.css';
 
-export const KeysList = () => {
+export const KeysList = ({ shortcuts }) => {
   return (
     <ul className={css.list}>
-      <Item />
-      <Item />
-      <Item />
+      {shortcuts.map(item => (
+        <Item key={item.id} item={item} />
+      ))}
     </ul>
   );
 };

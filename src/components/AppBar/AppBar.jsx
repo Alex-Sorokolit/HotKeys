@@ -1,6 +1,7 @@
+import { AddCategory } from 'components/AddCategory/AddCategory';
 import css from './AppBar.module.css';
 
-export const AppBar = ({ categories }) => {
+export const AppBar = ({ categories, onSubmit }) => {
   return (
     <div className={css.wrapper}>
       <div>
@@ -10,9 +11,7 @@ export const AppBar = ({ categories }) => {
           </button>
         ))}
       </div>
-      <button className={css.button} type="button">
-        Add Category
-      </button>
+      <AddCategory onSubmit={onSubmit} />
     </div>
   );
 };

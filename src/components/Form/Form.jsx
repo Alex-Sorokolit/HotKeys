@@ -1,9 +1,13 @@
 import { useState, useEffect } from 'react';
 import Select from 'react-select';
 import css from './Form.module.css';
+import { nanoid } from 'nanoid';
 
-export const Form = ({ categories }) => {
+export const Form = ({ categories, onSubmit }) => {
   const [options, setOptions] = useState([]);
+  const [category, setCategory] = useState('');
+  const [shortcut, setShortcut] = useState('');
+  const [description, setDescription] = useState('');
 
   useEffect(() => {
     const makeOptions = () => {
@@ -13,30 +17,52 @@ export const Form = ({ categories }) => {
       }));
     };
     setOptions(makeOptions);
-
-    // const reset = () => {
-    //   // setName('');
-    //   // setNumber('');
-    // };
   }, [categories]);
 
+  const handleSelectChange = event => {
+    setCategory(event.label);
+  };
+  const handleInputChange = event => {
+    const { name, value } = event.target;
+    switch (name) {
+      case 'shortcut':
+        setShortcut(value);
+        break;
+      case 'description':
+        setDescription(value);
+        break;
+      default:
+    }
+    return;
+  };
   const handleSubmit = event => {
     event.preventDefault();
-    // const form = event.target;
-    // Очистка форми
-    // reset();
+    const newShortCut = {
+      id: nanoid(),
+      catogories: category,
+      shortcut: shortcut,
+      description: description,
+    };
+    onSubmit(newShortCut);
+    reset();
+  };
+  const reset = () => {
+    // setCategory('')
+    setShortcut('');
+    setDescription('');
   };
 
   return (
     <section>
       <form className={css.form} onSubmit={handleSubmit}>
-        <div>
+        <div className={css.select}>
           <label className={css.label}>
-            Category
+            List
             <Select
+              name="category"
               options={options}
+              onChange={handleSelectChange}
               required
-              // onChange={this.handleChange}
             />
           </label>
         </div>
@@ -48,6 +74,7 @@ export const Form = ({ categories }) => {
                 className={css.input}
                 type="text"
                 name="shortcut"
+                onChange={handleInputChange}
                 required
               />
             </div>
@@ -61,6 +88,7 @@ export const Form = ({ categories }) => {
                 className={css.inputDesc}
                 type="text"
                 name="description"
+                onChange={handleInputChange}
                 required
               />
             </div>
