@@ -3,7 +3,7 @@ const db = {
     { id: '1', category: 'windows 10' },
     { id: '2', category: 'GitHub' },
     { id: '3', category: 'PowerShell' },
-    { id: '4', category: 'StudioOne' },
+    { id: '4', category: 'Chrome' },
   ],
   shortcuts: [
     {
@@ -29,6 +29,18 @@ const db = {
       category: 'PowerShell',
       shortcut: 'dir',
       description: 'Folder',
+    },
+    {
+      id: 'id-5',
+      category: 'Chrome',
+      shortcut: 'Ctrl + L',
+      description: 'Перемістить курсор в поле шляху',
+    },
+    {
+      id: 'id-6',
+      category: 'Chrome',
+      shortcut: 'Ctrl + U',
+      description: 'Відкриває код сторінки',
     },
   ],
 };

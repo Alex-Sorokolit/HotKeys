@@ -1,27 +1,12 @@
-import { useState, useEffect } from 'react';
-import Select from 'react-select';
+import { useState } from 'react';
 import css from './Form.module.css';
 import { nanoid } from 'nanoid';
+import { SearchBox } from 'components/SearchBox/SearchBox';
 
-export const Form = ({ categories, onSubmit }) => {
-  const [options, setOptions] = useState([]);
-  const [category, setCategory] = useState('');
+export const Form = ({ category, onSubmit }) => {
   const [shortcut, setShortcut] = useState('');
   const [description, setDescription] = useState('');
 
-  useEffect(() => {
-    const makeOptions = () => {
-      return categories.map(category => ({
-        value: category.id,
-        label: category.category,
-      }));
-    };
-    setOptions(makeOptions);
-  }, [categories]);
-
-  const handleSelectChange = event => {
-    setCategory(event.label);
-  };
   const handleInputChange = event => {
     const { name, value } = event.target;
     switch (name) {
@@ -35,11 +20,12 @@ export const Form = ({ categories, onSubmit }) => {
     }
     return;
   };
+
   const handleSubmit = event => {
     event.preventDefault();
     const newShortCut = {
       id: nanoid(),
-      catogories: category,
+      category: category,
       shortcut: shortcut,
       description: description,
     };
@@ -47,53 +33,47 @@ export const Form = ({ categories, onSubmit }) => {
     reset();
   };
   const reset = () => {
-    // setCategory('')
     setShortcut('');
     setDescription('');
   };
 
+  const shortCutId = nanoid();
+  const descriptionId = nanoid();
+
   return (
     <section>
       <form className={css.form} onSubmit={handleSubmit}>
-        <div className={css.select}>
-          <label className={css.label}>
-            List
-            <Select
-              name="category"
-              options={options}
-              onChange={handleSelectChange}
+        <SearchBox />
+        <label htmlFor={shortCutId}>
+          ShortCut
+          <div>
+            <input
+              className={css.input}
+              value={shortcut}
+              type="text"
+              name="shortcut"
+              onChange={handleInputChange}
+              id={shortCutId}
               required
             />
-          </label>
-        </div>
-        <div>
-          <label>
-            ShortCut
-            <div>
-              <input
-                className={css.input}
-                type="text"
-                name="shortcut"
-                onChange={handleInputChange}
-                required
-              />
-            </div>
-          </label>
-        </div>
-        <div className={css.desc}>
-          <label>
-            Description
-            <div>
-              <input
-                className={css.inputDesc}
-                type="text"
-                name="description"
-                onChange={handleInputChange}
-                required
-              />
-            </div>
-          </label>
-        </div>
+          </div>
+        </label>
+
+        <label htmlFor={descriptionId} className={css.desc}>
+          Description
+          <div>
+            <input
+              className={css.inputDesc}
+              value={description}
+              type="text"
+              name="description"
+              onChange={handleInputChange}
+              id={descriptionId}
+              required
+            />
+          </div>
+        </label>
+
         <button className={css.button} type="submit">
           Add
         </button>
@@ -101,14 +81,3 @@ export const Form = ({ categories, onSubmit }) => {
     </section>
   );
 };
-
-// makeOptions = () => {
-//   return this.state.breeds.map(breed => ({
-//     value: breed.id,
-//     label: breed.name,
-//   }));
-// };
-
-// handleChange = option => {
-//   this.props.onSelect(option.value);
-// };

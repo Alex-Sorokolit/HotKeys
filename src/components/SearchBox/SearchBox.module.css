@@ -1,7 +1,6 @@
-.wrapper {
-  margin-bottom: 5px;
-}
-
 .input {
   height: 38px;
+  width: 100%;
+  border: 1px solid rgb(179, 179, 179);
+  border-radius: 4px;
 }
