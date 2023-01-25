@@ -1,6 +1,7 @@
 import css from './AddCategory.module.css';
 import { nanoid } from 'nanoid';
 import { useState } from 'react';
+import { BsPlusSquare } from 'react-icons/bs';
 
 export const AddCategory = ({ onSubmit }) => {
   const [category, setCategory] = useState(null);
@@ -31,7 +32,7 @@ export const AddCategory = ({ onSubmit }) => {
         <input className={css.input} type="text" name="newCategory" required />
       </label>
       <button className={css.button} type="submit">
-        Add
+        <BsPlusSquare className={css.addIcon} />
       </button>
     </form>
   );

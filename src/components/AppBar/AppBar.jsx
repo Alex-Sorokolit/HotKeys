@@ -1,6 +1,7 @@
 import { AddCategory } from 'components/AddCategory/AddCategory';
 import css from './AppBar.module.css';
 import { useState } from 'react';
+import { MenuBtn } from 'components/MenuBtn/MenuBtn';
 
 export const AppBar = ({ categories, onSubmit, onSelectCategory }) => {
   const [activeCategory, setActiveCategory] = useState(null);
@@ -13,19 +14,22 @@ export const AppBar = ({ categories, onSubmit, onSelectCategory }) => {
 
   return (
     <div className={css.wrapper}>
-      <div className={css.buttonWrapper}>
-        {categories.map(({ id, category }) => (
-          <button
-            className={id === activeCategory ? css.active : css.button}
-            key={id}
-            id={id}
-            onClick={handleChange}
-            name={category}
-          >
-            {category}
-          </button>
-        ))}
-      </div>
+      <ul className={css.buttonWrapper}>
+        {categories.length > 0 &&
+          categories.map(({ id, category }) => (
+            <li key={id} className={css.item}>
+              <button
+                className={id === activeCategory ? css.active : css.button}
+                id={id}
+                onClick={handleChange}
+                name={category}
+              >
+                {category}
+              </button>
+              <MenuBtn />
+            </li>
+          ))}
+      </ul>
       <AddCategory onSubmit={onSubmit} />
     </div>
   );

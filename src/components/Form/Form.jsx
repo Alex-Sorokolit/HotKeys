@@ -51,6 +51,7 @@ export const Form = ({ changeFilter, category, onSubmit }) => {
           ShortCut
           <div>
             <input
+              // autoFocus
               className={css.input}
               value={shortcut}
               type="text"

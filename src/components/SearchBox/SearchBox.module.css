@@ -10,9 +10,10 @@
 }
 .icon {
   color: grey;
-  font-size: 25px;
+  font-size: 15px;
   position: absolute;
+  z-index: 1;
   top: 50%;
   right: 0%;
-  transform: translate(-20%, -50%) scale(1);
+  transform: translate(-50%, -50%) scale(1);
 }

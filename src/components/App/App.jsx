@@ -4,20 +4,21 @@ import { AppBar } from 'components/AppBar/AppBar';
 import { KeysList } from 'components/KeyList/KeyList';
 import css from './App.module.css';
 import { useEffect, useState } from 'react';
-import { getCategories, getShortCut } from 'services/FakeApi';
+import { addShortCut } from 'services/FakeApi';
+import { useSessionStorage } from 'hooks/useSessionStorage';
 
 export const App = () => {
-  const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = useSessionStorage('categories');
   const [category, setCategory] = useState('');
-  const [shortcuts, setShortcuts] = useState([]);
+  const [shortcuts, setShortcuts] = useSessionStorage('shortcuts');
   const [categoryShortCuts, setCategoryShortCuts] = useState([]);
   const [filter, setFilter] = useState('');
   const [visibleShortCuts, setVisibleShortCuts] = useState([]);
 
-  useEffect(() => {
-    getCategories().then(setCategories);
-    getShortCut().then(setShortcuts);
-  }, []);
+  // useEffect(() => {
+  //   getCategories().then(setCategories);
+  //   getShortCut().then(setShortcuts);
+  // }, []);
 
   useEffect(() => {
     const categoryShortcuts = () => {
@@ -28,6 +29,8 @@ export const App = () => {
       setCategoryShortCuts(filtered);
     };
     categoryShortcuts();
+
+    addShortCut(shortcuts);
   }, [category, shortcuts]);
 
   // Фільтр ____________________________________________________
@@ -93,6 +96,6 @@ export const App = () => {
 };
 
 // Категорія за замовчуванням
-// Додати іконку до пошуку
 // Відреголювати ширину пошуку
 // Після сабміта форми, фокус на введення хоткея
+// В AppBar кнопки замінити на елементи в яких будуть меню

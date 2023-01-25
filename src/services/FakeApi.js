@@ -1,4 +1,4 @@
-const db = {
+let db = {
   categories: [
     { id: '1', category: 'windows 10' },
     { id: '2', category: 'GitHub' },
@@ -48,7 +48,9 @@ const db = {
 export const getShortCut = () => {
   return Promise.resolve(db.shortcuts);
 };
-
+export const addShortCut = newShortCut => {
+  return (db.shortcuts = [...db.shortcuts, newShortCut]);
+};
 export const getCategories = () => {
   return Promise.resolve(db.categories);
 };
