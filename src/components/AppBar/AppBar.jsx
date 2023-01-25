@@ -14,7 +14,7 @@ export const AppBar = ({ categories, onSubmit, onSelectCategory }) => {
 
   return (
     <div className={css.wrapper}>
-      <ul className={css.buttonWrapper}>
+      <ul className={css.list}>
         {categories.length > 0 &&
           categories.map(({ id, category }) => (
             <li key={id} className={css.item}>

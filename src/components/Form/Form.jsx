@@ -2,6 +2,7 @@ import { useState } from 'react';
 import css from './Form.module.css';
 import { nanoid } from 'nanoid';
 import { SearchBox } from 'components/SearchBox/SearchBox';
+import { AiOutlinePlus } from 'react-icons/ai';
 
 export const Form = ({ changeFilter, category, onSubmit }) => {
   const [shortcut, setShortcut] = useState('');
@@ -77,9 +78,8 @@ export const Form = ({ changeFilter, category, onSubmit }) => {
             />
           </div>
         </label>
-
         <button className={css.button} type="submit">
-          Add
+          <AiOutlinePlus className={css.addIcon} />
         </button>
       </form>
     </section>

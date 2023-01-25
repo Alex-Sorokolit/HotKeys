@@ -1,7 +1,7 @@
 .item {
   display: grid;
-  grid-template-columns: 1fr 5fr 1fr;
-  height: 38px;
+  grid-template-columns: 1fr 4fr;
+  min-height: 38px;
   border: 1px solid grey;
   border-radius: 4px;
   padding: 5px;
@@ -15,9 +15,10 @@
 .shortCut {
   margin-right: 5px;
   font-weight: 700;
+  border-right: 1px solid grey;
 }
 
 .description {
   text-align: start;
-  color: grey;
+  padding-right: 8%;
 }
