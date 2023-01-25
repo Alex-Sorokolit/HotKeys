@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/HotKeys/static/css/main.7041c152.css",
-    "main.js": "/HotKeys/static/js/main.624ef1dc.js",
+    "main.css": "/HotKeys/static/css/main.7865da2b.css",
+    "main.js": "/HotKeys/static/js/main.f2d10c05.js",
     "index.html": "/HotKeys/index.html",
-    "main.7041c152.css.map": "/HotKeys/static/css/main.7041c152.css.map",
-    "main.624ef1dc.js.map": "/HotKeys/static/js/main.624ef1dc.js.map"
+    "main.7865da2b.css.map": "/HotKeys/static/css/main.7865da2b.css.map",
+    "main.f2d10c05.js.map": "/HotKeys/static/js/main.f2d10c05.js.map"
   },
   "entrypoints": [
-    "static/css/main.7041c152.css",
-    "static/js/main.624ef1dc.js"
+    "static/css/main.7865da2b.css",
+    "static/js/main.f2d10c05.js"
   ]
 }
