@@ -11,6 +11,7 @@ export const App = () => {
   const [category, setCategory] = useState('');
   const [shortcuts, setShortcuts] = useState([]);
   const [filteredShortCuts, setFilteredShortCuts] = useState([]);
+  const [filter, setFilter] = useState('');
 
   useEffect(() => {
     getCategories().then(setCategories);
@@ -27,6 +28,20 @@ export const App = () => {
     };
     filterShortcuts();
   }, [category, shortcuts]);
+
+  const changeFilter = event => {
+    setFilter(event.currentTarget.value);
+  };
+
+  // Фільтр
+  const getVisibleContacts = () => {
+    // state.filter нормалізуємо один раз, а не при кожній ітерації методу filter
+    const normalizedFilter = filter.toLocaleLowerCase();
+
+    return filteredShortCuts.filter(contact =>
+      contact.name.toLowerCase().includes(normalizedFilter)
+    );
+  };
 
   function addShortcut(newShortcut) {
     setShortcuts(prevShortcuts => [...prevShortcuts, newShortcut]);
@@ -51,12 +66,13 @@ export const App = () => {
       {/* Keyboard */}
       <section className={css.section}>
         <AppBar
+          changeFilter={changeFilter}
           categories={categories}
           onSelectCategory={onSelectCategory}
           onSubmit={addCategory}
         />
         <div>
-          <KeysList shortcuts={filteredShortCuts} />
+          <KeysList shortcuts={getVisibleContacts()} />
         </div>
       </section>
     </div>

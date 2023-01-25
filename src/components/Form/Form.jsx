@@ -3,7 +3,7 @@ import css from './Form.module.css';
 import { nanoid } from 'nanoid';
 import { SearchBox } from 'components/SearchBox/SearchBox';
 
-export const Form = ({ category, onSubmit }) => {
+export const Form = ({ changeFilter, category, onSubmit }) => {
   const [shortcut, setShortcut] = useState('');
   const [description, setDescription] = useState('');
 
@@ -43,7 +43,7 @@ export const Form = ({ category, onSubmit }) => {
   return (
     <section>
       <form className={css.form} onSubmit={handleSubmit}>
-        <SearchBox />
+        <SearchBox changeFilter={changeFilter} />
         <label htmlFor={shortCutId}>
           ShortCut
           <div>
