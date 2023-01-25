@@ -1,11 +1,6 @@
 import css from './SearchBox.module.css';
-export const SearchBox = ({ value, changeFilter }) => {
+export const SearchBox = ({ changeFilter }) => {
   return (
-    <input
-      className={css.input}
-      type="text"
-      value={value}
-      onChange={event => changeFilter(event.target.value)}
-    ></input>
+    <input className={css.input} type="text" onChange={changeFilter}></input>
   );
 };

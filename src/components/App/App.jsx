@@ -10,8 +10,9 @@ export const App = () => {
   const [categories, setCategories] = useState([]);
   const [category, setCategory] = useState('');
   const [shortcuts, setShortcuts] = useState([]);
-  const [filteredShortCuts, setFilteredShortCuts] = useState([]);
+  const [categoryShortCuts, setCategoryShortCuts] = useState([]);
   const [filter, setFilter] = useState('');
+  const [visibleShortCuts, setVisibleShortCuts] = useState([]);
 
   useEffect(() => {
     getCategories().then(setCategories);
@@ -19,34 +20,41 @@ export const App = () => {
   }, []);
 
   useEffect(() => {
-    const filterShortcuts = () => {
+    const categoryShortcuts = () => {
       const filtered = shortcuts.filter(
         shortcut => shortcut.category === category
       );
-      console.log(filtered);
-      setFilteredShortCuts(filtered);
+      // console.log(filtered);
+      setCategoryShortCuts(filtered);
     };
-    filterShortcuts();
+    categoryShortcuts();
   }, [category, shortcuts]);
 
+  // Фільтр ____________________________________________________
+
+  useEffect(() => {
+    const getVisibleContacts = () => {
+      // state.filter нормалізуємо один раз, а не при кожній ітерації методу filter
+      const normalizedFilter = filter.toLowerCase();
+
+      return categoryShortCuts.filter(shortcut =>
+        shortcut.shortcut.toLowerCase().includes(normalizedFilter)
+      );
+    };
+
+    setVisibleShortCuts(getVisibleContacts());
+  }, [categoryShortCuts, filter]);
+
   const changeFilter = event => {
-    setFilter(event.currentTarget.value);
-  };
-
-  // Фільтр
-  const getVisibleContacts = () => {
-    // state.filter нормалізуємо один раз, а не при кожній ітерації методу filter
-    const normalizedFilter = filter.toLocaleLowerCase();
-
-    return filteredShortCuts.filter(contact =>
-      contact.name.toLowerCase().includes(normalizedFilter)
-    );
+    // console.log(event.target.value);
+    setFilter(event.target.value);
   };
 
   function addShortcut(newShortcut) {
     setShortcuts(prevShortcuts => [...prevShortcuts, newShortcut]);
   }
 
+  // Category _____________________________________________________
   function addCategory(id, newCategory) {
     const data = {
       id: id,
@@ -62,19 +70,26 @@ export const App = () => {
   return (
     <div>
       <Header />
-      <Form category={category} onSubmit={addShortcut} />
+      <Form
+        changeFilter={changeFilter}
+        category={category}
+        onSubmit={addShortcut}
+      />
       {/* Keyboard */}
       <section className={css.section}>
         <AppBar
-          changeFilter={changeFilter}
           categories={categories}
           onSelectCategory={onSelectCategory}
           onSubmit={addCategory}
         />
         <div>
-          <KeysList shortcuts={getVisibleContacts()} />
+          <KeysList shortcuts={visibleShortCuts} />
         </div>
       </section>
     </div>
   );
 };
+
+// Додати іконку до пошуку
+// Відреголювати ширину пошуку
+// Після сабміта форми, фокус на введення хоткея
