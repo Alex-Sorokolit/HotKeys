@@ -37,8 +37,10 @@ export const App = () => {
       // state.filter нормалізуємо один раз, а не при кожній ітерації методу filter
       const normalizedFilter = filter.toLowerCase();
 
-      return categoryShortCuts.filter(shortcut =>
-        shortcut.shortcut.toLowerCase().includes(normalizedFilter)
+      return categoryShortCuts.filter(
+        shortcut =>
+          shortcut.shortcut.toLowerCase().includes(normalizedFilter) ||
+          shortcut.description.toLowerCase().includes(normalizedFilter)
       );
     };
 

@@ -13,7 +13,7 @@ export const AppBar = ({ categories, onSubmit, onSelectCategory }) => {
 
   return (
     <div className={css.wrapper}>
-      <div>
+      <div className={css.buttonWrapper}>
         {categories.map(({ id, category }) => (
           <button
             className={id === activeCategory ? css.active : css.button}

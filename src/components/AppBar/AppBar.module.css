@@ -21,7 +21,11 @@
   background-color: #e2e5e8;
   color: inherit;
 } */
-
+.buttonWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
 .button {
   cursor: pointer;
   height: 38px;
@@ -29,14 +33,18 @@
 }
 
 .button:hover {
-  background-color: #1976d2;
+  border-radius: 4px;
+  background-color: #20946e;
   color: #fff;
+  border: 1px solid black;
 }
 
 .active {
+  border: 1px solid black;
+  border-radius: 4px;
   cursor: pointer;
   height: 38px;
   width: 100%;
-  background-color: #1565c0;
+  background-color: #106146;
   color: #fff;
 }
