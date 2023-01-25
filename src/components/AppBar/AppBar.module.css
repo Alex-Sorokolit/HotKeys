@@ -28,17 +28,15 @@
   width: 100%;
 }
 
-.button.isSelected {
-  background-color: #1976d2;
-  color: #fff;
-}
-
 .button:hover {
   background-color: #1976d2;
   color: #fff;
 }
 
-.button.active {
+.active {
+  cursor: pointer;
+  height: 38px;
+  width: 100%;
   background-color: #1565c0;
   color: #fff;
 }

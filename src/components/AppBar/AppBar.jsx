@@ -4,8 +4,7 @@ import { useState } from 'react';
 
 export const AppBar = ({ categories, onSubmit, onSelectCategory }) => {
   const [activeCategory, setActiveCategory] = useState(null);
-  const className = [css.item];
-  if (activeCategory) className.push('isSelected');
+
   const handleChange = event => {
     onSelectCategory(event.currentTarget.name);
     // console.log(event.currentTarget.id);
@@ -17,8 +16,7 @@ export const AppBar = ({ categories, onSubmit, onSelectCategory }) => {
       <div>
         {categories.map(({ id, category }) => (
           <button
-            selected={id === activeCategory}
-            className={css.button}
+            className={id === activeCategory ? css.active : css.button}
             key={id}
             id={id}
             onClick={handleChange}
