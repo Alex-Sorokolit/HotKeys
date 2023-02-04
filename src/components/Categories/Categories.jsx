@@ -7,6 +7,8 @@ import { NavLink, useLocation } from 'react-router-dom';
 import { useToggle } from 'hooks/useToggle';
 import { ContextMenu } from 'components/ContextMenu/ContextMenu';
 import { AiFillDelete } from 'react-icons/ai';
+import { Confirm } from 'components/Confirm/Confirm';
+import { useConfirmToggle } from 'hooks/useToggle';
 
 export const Categories = ({
   categories,
@@ -18,6 +20,8 @@ export const Categories = ({
 
   const [activeCategory, setActiveCategory] = useState(null);
   const { isOpen, toggle, close } = useToggle(false);
+  const { isConfirmOpen, confirmToggle, confirmClose } =
+    useConfirmToggle(false);
 
   // дістяємо назву категорії із url (для відновлення після перезагрузки сторінки)
   useEffect(() => {
@@ -33,6 +37,7 @@ export const Categories = ({
     // console.log(event.currentTarget.name);
     setActiveCategory(event.currentTarget.name);
     onSelectCategory(activeCategory);
+    confirmClose();
   };
 
   return (
@@ -53,22 +58,37 @@ export const Categories = ({
                 name={category}
               >
                 {category}
-                <MenuBtn
-                  openMenu={toggle}
-                  // name={category}
-                />
+                <MenuBtn openMenu={toggle} />
               </NavLink>
               {isOpen && category === activeCategory && (
                 <ContextMenu>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      deleteCategory(id, category);
-                      close();
-                    }}
-                  >
+                  <button type="button" onClick={confirmToggle}>
                     <AiFillDelete />
                   </button>
+                  {isConfirmOpen && (
+                    <Confirm>
+                      {/* <p>Delete ?</p> */}
+                      <button
+                        type="button"
+                        onClick={() => {
+                          deleteCategory(id, category);
+                          confirmClose();
+                          close();
+                        }}
+                      >
+                        Yes
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          confirmClose();
+                          close();
+                        }}
+                      >
+                        No
+                      </button>
+                    </Confirm>
+                  )}
                 </ContextMenu>
               )}
             </li>

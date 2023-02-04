@@ -2,7 +2,7 @@ import { useState } from 'react';
 import css from './Form.module.css';
 import { nanoid } from 'nanoid';
 import { SearchBox } from 'components/SearchBox/SearchBox';
-import { AiOutlinePlus } from 'react-icons/ai';
+// import { AiOutlinePlus } from 'react-icons/ai';
 
 export const Form = ({ changeFilter, category, onSubmit }) => {
   const [shortcut, setShortcut] = useState('');
@@ -43,11 +43,6 @@ export const Form = ({ changeFilter, category, onSubmit }) => {
   return (
     <div>
       <form className={css.form} onSubmit={handleSubmit}>
-        <label>
-          Search
-          <SearchBox changeFilter={changeFilter} />
-        </label>
-
         <label htmlFor={shortCutId}>
           ShortCut
           <div>
@@ -79,8 +74,13 @@ export const Form = ({ changeFilter, category, onSubmit }) => {
           </div>
         </label>
         <button className={css.button} type="submit">
-          <AiOutlinePlus className={css.addIcon} />
+          {/* <AiOutlinePlus className={css.addIcon} /> */}
+          Add
         </button>
+        <label>
+          Search
+          <SearchBox changeFilter={changeFilter} />
+        </label>
       </form>
     </div>
   );

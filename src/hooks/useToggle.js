@@ -9,3 +9,12 @@ export const useToggle = (initialState = false) => {
   // return { isOpen, open, close, toggle };
   return { isOpen, toggle, close };
 };
+export const useConfirmToggle = (initialState = false) => {
+  const [isConfirmOpen, SetIsConfirmOpen] = useState(initialState);
+  // const open = () => setIsOpen(true);
+  const confirmClose = () => SetIsConfirmOpen(false);
+  const confirmToggle = () => SetIsConfirmOpen(isOpen => !isOpen);
+
+  // return { isOpen, open, close, toggle };
+  return { isConfirmOpen, confirmToggle, confirmClose };
+};
