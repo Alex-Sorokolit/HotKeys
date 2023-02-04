@@ -41,7 +41,7 @@ export const Categories = ({
   };
 
   return (
-    <div className={css.wrapper}>
+    <section className={css.wrapper}>
       <h2>Categories</h2>
       <ul className={css.list}>
         {categories.length > 0 &&
@@ -68,6 +68,7 @@ export const Categories = ({
                     className={css.deleteBtn}
                   >
                     <AiFillDelete />
+                    Delete
                   </button>
                   {isConfirmOpen && (
                     <Confirm>
@@ -100,7 +101,7 @@ export const Categories = ({
           ))}
       </ul>
       <AddCategory onSubmit={onSubmit} />
-    </div>
+    </section>
   );
 };
 

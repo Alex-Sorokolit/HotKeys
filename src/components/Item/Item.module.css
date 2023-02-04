@@ -2,10 +2,13 @@
   display: grid;
   grid-template-columns: 1fr 4fr;
   min-height: 38px;
-  border: 1px solid grey;
-  border-radius: 4px;
   padding: 5px;
   position: relative;
+
+  /* border: 1px solid grey; */
+  padding: 10px 15px;
+  background-color: rgba(33, 33, 33, 0.8);
+  border-radius: 4px;
 }
 
 .item:not(:last-child) {
@@ -13,6 +16,7 @@
 }
 
 .shortCut {
+  font-size: 1.5em;
   margin-right: 5px;
   font-weight: 700;
   border-right: 1px solid grey;
@@ -37,8 +41,8 @@
   justify-content: center;
 }
 .deleteIcon {
-  font-size: 1.5rem;
-  color: grey;
+  font-size: 1.5em;
+  color: rgb(255, 255, 255);
 }
 .deleteIcon:hover {
   color: red;

@@ -41,7 +41,7 @@ export const Form = ({ changeFilter, category, onSubmit }) => {
   const descriptionId = nanoid();
 
   return (
-    <div>
+    <section>
       <form className={css.form} onSubmit={handleSubmit}>
         <label htmlFor={shortCutId}>
           ShortCut
@@ -82,6 +82,6 @@ export const Form = ({ changeFilter, category, onSubmit }) => {
           <SearchBox changeFilter={changeFilter} />
         </label>
       </form>
-    </div>
+    </section>
   );
 };

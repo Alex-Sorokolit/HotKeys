@@ -126,7 +126,7 @@ export const App = () => {
                 path="/:categoryName"
                 element={
                   <KeysList
-                    shortcuts={visibleShortCuts}
+                    visibleShortCuts={visibleShortCuts}
                     deleteShortcut={deleteShortcut}
                   />
                 }

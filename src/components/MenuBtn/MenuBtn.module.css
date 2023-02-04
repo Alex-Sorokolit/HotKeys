@@ -12,9 +12,9 @@
   justify-content: center;
 }
 .menuIcon {
-  font-size: 1.5rem;
-  color: grey;
+  font-size: 1.5em;
+  color: white;
 }
 .menuIcon:hover {
-  color: black;
+  color: green;
 }
