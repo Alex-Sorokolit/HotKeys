@@ -1,5 +1,5 @@
 import { MenuBtn } from 'components/MenuBtn/MenuBtn';
-import { AiFillDelete } from 'react-icons/ai';
+// import { AiFillDelete } from 'react-icons/ai';
 import css from './Item.module.css';
 export const Item = ({ item, deleteShortcut }) => {
   return (

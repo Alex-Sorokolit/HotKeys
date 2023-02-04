@@ -32,6 +32,18 @@
   border-radius: 4px;
 }
 
+.label:focus-within {
+  color: #1aa476;
+}
+
+/* .input:not(:placeholder-shown):required:valid {
+  border-color: #4caf50;
+} */
+
+/* .input:not(:placeholder-shown):required:invalid {
+  border-color: #f44336;
+} */
+
 .button {
   /* height: 38px; */
   padding: 5px;

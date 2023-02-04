@@ -27,7 +27,7 @@ export const AddCategory = ({ onSubmit }) => {
 
   return (
     <form className={css.form} onSubmit={handleSubmit}>
-      <label>
+      <label className={css.label}>
         New List
         <input className={css.input} type="text" name="newCategory" required />
       </label>

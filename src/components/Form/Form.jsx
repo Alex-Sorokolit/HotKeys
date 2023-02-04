@@ -43,7 +43,7 @@ export const Form = ({ changeFilter, category, onSubmit }) => {
   return (
     <section>
       <form className={css.form} onSubmit={handleSubmit}>
-        <label htmlFor={shortCutId}>
+        <label htmlFor={shortCutId} className={css.label}>
           ShortCut
           <div>
             <input
@@ -54,16 +54,17 @@ export const Form = ({ changeFilter, category, onSubmit }) => {
               name="shortcut"
               onChange={handleInputChange}
               id={shortCutId}
+              plaseholder=""
               required
             />
           </div>
         </label>
 
-        <label htmlFor={descriptionId} className={css.desc}>
+        <label htmlFor={descriptionId} className={css.label}>
           Description
           <div>
             <input
-              className={css.inputDesc}
+              className={css.input}
               value={description}
               type="text"
               name="description"
@@ -77,10 +78,8 @@ export const Form = ({ changeFilter, category, onSubmit }) => {
           {/* <AiOutlinePlus className={css.addIcon} /> */}
           Add
         </button>
-        <label>
-          Search
-          <SearchBox changeFilter={changeFilter} />
-        </label>
+
+        <SearchBox changeFilter={changeFilter} />
       </form>
     </section>
   );

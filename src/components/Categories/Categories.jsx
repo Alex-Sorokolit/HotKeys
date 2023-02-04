@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { MenuBtn } from 'components/MenuBtn/MenuBtn';
 import { NavLink, useLocation } from 'react-router-dom';
 
-import { AiFillDelete } from 'react-icons/ai';
+// import { AiFillDelete } from 'react-icons/ai';
 import { useToggle } from 'hooks/useToggle';
 import { ContextMenu } from 'components/ContextMenu/ContextMenu';
 import { Confirm } from 'components/Confirm/Confirm';
@@ -66,7 +66,7 @@ export const Categories = ({
                     onClick={confirmToggle}
                     className={css.deleteBtn}
                   >
-                    <AiFillDelete />
+                    {/* <AiFillDelete /> */}
                     Delete
                   </button>
                   {isConfirmOpen && (

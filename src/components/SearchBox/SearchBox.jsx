@@ -3,8 +3,15 @@ import { GoSearch } from 'react-icons/go';
 export const SearchBox = ({ changeFilter }) => {
   return (
     <div className={css.searchWrapper}>
-      <input className={css.input} type="text" onChange={changeFilter}></input>
-      <GoSearch className={css.icon} />
+      <label className={css.label}>
+        Search
+        <input
+          className={css.input}
+          type="text"
+          onChange={changeFilter}
+        ></input>
+        <GoSearch className={css.icon} />
+      </label>
     </div>
   );
 };
