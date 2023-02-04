@@ -4,9 +4,9 @@ import { useState, useEffect } from 'react';
 import { MenuBtn } from 'components/MenuBtn/MenuBtn';
 import { NavLink, useLocation } from 'react-router-dom';
 
+import { AiFillDelete } from 'react-icons/ai';
 import { useToggle } from 'hooks/useToggle';
 import { ContextMenu } from 'components/ContextMenu/ContextMenu';
-import { AiFillDelete } from 'react-icons/ai';
 import { Confirm } from 'components/Confirm/Confirm';
 import { useConfirmToggle } from 'hooks/useToggle';
 
@@ -17,7 +17,6 @@ export const Categories = ({
   deleteCategory,
 }) => {
   const location = useLocation();
-
   const [activeCategory, setActiveCategory] = useState(null);
   const { isOpen, toggle, close } = useToggle(false);
   const { isConfirmOpen, confirmToggle, confirmClose } =
