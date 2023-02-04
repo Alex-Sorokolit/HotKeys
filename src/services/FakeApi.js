@@ -5,6 +5,7 @@ let db = {
     { id: '3', category: 'PowerShell' },
     { id: '4', category: 'Chrome' },
   ],
+
   shortcuts: [
     {
       id: 'id-1',
@@ -30,20 +31,43 @@ let db = {
       shortcut: 'dir',
       description: 'Folder',
     },
-    {
-      id: 'id-5',
-      category: 'Chrome',
-      shortcut: 'Ctrl + L',
-      description: 'Перемістить курсор в поле шляху',
-    },
-    {
-      id: 'id-6',
-      category: 'Chrome',
-      shortcut: 'Ctrl + U',
-      description: 'Відкриває код сторінки',
-    },
   ],
 };
+
+// const Data = [
+//   {
+//     categoryId: 'c1',
+//     catName: 'Chrom',
+//     shortcuts: [
+//       {
+//         id: 'id-5',
+//         shortcut: 'Ctrl + L',
+//         description: 'Перемістить курсор в поле шляху',
+//       },
+//       {
+//         id: 'id-6',
+//         shortcut: 'Ctrl + U',
+//         description: 'Відкриває код сторінки',
+//       },
+//     ],
+//   },
+//   {
+//     categoryId: 'c2',
+//     catName: 'StudioOne',
+//     shortcuts: [
+//       {
+//         id: 'id-3',
+//         shortcut: 'Ctrl + L',
+//         description: 'Перемістить курсор в поле шляху',
+//       },
+//       {
+//         id: 'id-8',
+//         shortcut: 'Ctrl + U',
+//         description: 'Відкриває код сторінки',
+//       },
+//     ],
+//   },
+// ];
 
 export const getShortCut = () => {
   return Promise.resolve(db.shortcuts);

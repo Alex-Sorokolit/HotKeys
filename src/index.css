@@ -9,6 +9,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(41, 49, 49);
 }
 
 code {
@@ -16,6 +17,7 @@ code {
     monospace;
 }
 
+/* reset ____________________________________*/
 section {
   width: 100%;
   padding: 5px 20px;

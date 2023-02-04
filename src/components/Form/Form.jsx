@@ -41,7 +41,7 @@ export const Form = ({ changeFilter, category, onSubmit }) => {
   const descriptionId = nanoid();
 
   return (
-    <section>
+    <div>
       <form className={css.form} onSubmit={handleSubmit}>
         <label>
           Search
@@ -82,6 +82,6 @@ export const Form = ({ changeFilter, category, onSubmit }) => {
           <AiOutlinePlus className={css.addIcon} />
         </button>
       </form>
-    </section>
+    </div>
   );
 };

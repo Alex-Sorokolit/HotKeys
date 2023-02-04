@@ -1,0 +1,51 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-right: 5px;
+}
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.item {
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+
+.category {
+  cursor: pointer;
+  width: 80%;
+  color: inherit;
+  text-decoration: none;
+  padding: 5px 10px;
+  outline: 1px solid orangered;
+}
+
+.item:hover {
+  background-color: #106146;
+  color: #fff;
+}
+
+.active {
+  width: 100%;
+  display: flex;
+
+  /* border-radius: 4px;
+  cursor: pointer;
+  height: 38px;
+  width: 100%; */
+  background-color: #166a4e64;
+  color: #fff;
+  position: relative;
+}
+
+.deleteBtn {
+  background-color: transparent;
+  border: none;
+}
+.deleteBtn:hover {
+  color: red;
+}
