@@ -38,10 +38,11 @@
   font-size: 1.5em;
   border: 1px Solid transparent;
   border-radius: 4px;
+  background-color: white;
 }
 
 .button:hover {
-  background-color: green;
+  background-color: #106146;
   border: 1px Solid transparent;
   border-radius: 4px;
   color: white;

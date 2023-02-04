@@ -101,7 +101,7 @@ export const App = () => {
   return (
     <>
       <div className="container">
-        <Header />
+        <Header onSelectCategory={onSelectCategory} />
 
         <div className={css.mainFlex}>
           <Categories
@@ -125,10 +125,18 @@ export const App = () => {
               <Route
                 path="/:categoryName"
                 element={
-                  <KeysList
-                    visibleShortCuts={visibleShortCuts}
-                    deleteShortcut={deleteShortcut}
-                  />
+                  <>
+                    {visibleShortCuts.length === 0 && filter !== '' && (
+                      <p className={css.message}>
+                        Nothing was found for{' '}
+                        <span className={css.filter}>{filter}</span> request.
+                      </p>
+                    )}
+                    <KeysList
+                      visibleShortCuts={visibleShortCuts}
+                      deleteShortcut={deleteShortcut}
+                    />
+                  </>
                 }
               />
               <Route path="*" element={<Navigate to="/" />}></Route>

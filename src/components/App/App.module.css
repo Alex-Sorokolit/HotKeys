@@ -3,3 +3,9 @@
   grid-template-columns: 2fr 5fr;
   gap: 10px;
 }
+.message {
+  font-size: 1.5em;
+}
+.filter {
+  background-color: rgba(0, 128, 0, 0.5);
+}

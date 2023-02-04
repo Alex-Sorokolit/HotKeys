@@ -17,12 +17,13 @@
 
 .shortCut {
   font-size: 1.5em;
-  margin-right: 5px;
+  margin-right: 15px;
   font-weight: 700;
   border-right: 1px solid grey;
 }
 
 .description {
+  font-size: 1.2em;
   text-align: start;
   padding-right: 8%;
 }
