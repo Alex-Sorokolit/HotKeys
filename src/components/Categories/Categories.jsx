@@ -17,7 +17,7 @@ export const Categories = ({
   const location = useLocation();
 
   const [activeCategory, setActiveCategory] = useState(null);
-  const { isOpen, toggle } = useToggle(false);
+  const { isOpen, toggle, close } = useToggle(false);
 
   // дістяємо назву категорії із url (для відновлення після перезагрузки сторінки)
   useEffect(() => {
@@ -30,7 +30,7 @@ export const Categories = ({
 
   // дістаємо назву категорії із кнопки категорії
   const handleChange = event => {
-    console.log(event.currentTarget.name);
+    // console.log(event.currentTarget.name);
     setActiveCategory(event.currentTarget.name);
     onSelectCategory(activeCategory);
   };
@@ -60,7 +60,13 @@ export const Categories = ({
               </NavLink>
               {isOpen && category === activeCategory && (
                 <ContextMenu>
-                  <button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      deleteCategory(id, category);
+                      close();
+                    }}
+                  >
                     <AiFillDelete />
                   </button>
                 </ContextMenu>
@@ -72,3 +78,5 @@ export const Categories = ({
     </div>
   );
 };
+
+// показуємо меню якщо  isOpen та активна категорія співпадає із категорією даного item

@@ -77,7 +77,7 @@ export const App = () => {
   }
   // видалення категорії
   function deleteCategory(id, category) {
-    console.log('delete category');
+    // console.log('delete category');
     // фільтруємо, видяляємо контакти
     setShortcuts(prevShortcuts =>
       prevShortcuts.filter(shortCut => shortCut.category !== category)
