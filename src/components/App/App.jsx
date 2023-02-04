@@ -66,7 +66,11 @@ export const App = () => {
   function addShortcut(newShortcut) {
     setShortcuts(prevShortcuts => [...prevShortcuts, newShortcut]);
   }
-
+  function deleteShortcut(id) {
+    setShortcuts(prevShortcuts =>
+      prevShortcuts.filter(shotCut => shotCut.id !== id)
+    );
+  }
   // Category _____________________________________________________
   function addCategory(id, newCategory) {
     const data = {
@@ -120,7 +124,12 @@ export const App = () => {
               <Route path="/" element={App}></Route>
               <Route
                 path="/:categoryName"
-                element={<KeysList shortcuts={visibleShortCuts} />}
+                element={
+                  <KeysList
+                    shortcuts={visibleShortCuts}
+                    deleteShortcut={deleteShortcut}
+                  />
+                }
               />
               <Route path="*" element={<Navigate to="/" />}></Route>
             </Routes>

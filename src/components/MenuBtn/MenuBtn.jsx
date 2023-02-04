@@ -1,17 +1,10 @@
 import { GiHamburgerMenu } from 'react-icons/gi';
 import css from './MenuBtn.module.css';
-// import { ContextMenu } from 'components/ContextMenu/ContextMenu';
 
-export const MenuBtn = ({ openMenu, name }) => {
+export const MenuBtn = ({ openMenu }) => {
   return (
-    <button
-      className={css.menuBtn}
-      type="button"
-      onClick={openMenu}
-      // name={name}
-    >
+    <button className={css.menuBtn} type="button" onClick={openMenu}>
       <GiHamburgerMenu className={css.menuIcon} />
-      {/* {isOpen && <ContextMenu />} */}
     </button>
   );
 };

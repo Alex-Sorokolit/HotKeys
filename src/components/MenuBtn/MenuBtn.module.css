@@ -1,5 +1,6 @@
 .menuBtn {
   /* z-index: 10; */
+  cursor: pointer;
   position: absolute;
   top: 50%;
   right: 0%;
@@ -11,8 +12,8 @@
   justify-content: center;
 }
 .menuIcon {
+  font-size: 1.5rem;
   color: grey;
-  font-size: medium;
 }
 .menuIcon:hover {
   color: black;

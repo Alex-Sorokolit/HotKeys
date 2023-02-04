@@ -62,13 +62,17 @@ export const Categories = ({
               </NavLink>
               {isOpen && category === activeCategory && (
                 <ContextMenu>
-                  <button type="button" onClick={confirmToggle}>
+                  <button
+                    type="button"
+                    onClick={confirmToggle}
+                    className={css.deleteBtn}
+                  >
                     <AiFillDelete />
                   </button>
                   {isConfirmOpen && (
                     <Confirm>
-                      {/* <p>Delete ?</p> */}
                       <button
+                        className={css.yes}
                         type="button"
                         onClick={() => {
                           deleteCategory(id, category);
@@ -79,6 +83,7 @@ export const Categories = ({
                         Yes
                       </button>
                       <button
+                        className={css.no}
                         type="button"
                         onClick={() => {
                           confirmClose();
