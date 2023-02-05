@@ -119,31 +119,32 @@ export const App = () => {
               />
             )}
             {/* Keyboard */}
-
-            <Routes>
-              <Route path="/" element={App}></Route>
-              <Route
-                path="/:categoryName"
-                element={
-                  <>
-                    {visibleShortCuts.length === 0 && filter !== '' && (
-                      <p className={css.message}>
-                        Nothing was found for{' '}
-                        <span className={css.filter}>{filter}</span> request.
-                      </p>
-                    )}
-                    <KeysList
-                      visibleShortCuts={visibleShortCuts}
-                      deleteShortcut={deleteShortcut}
-                    />
-                  </>
-                }
-              />
-              <Route path="*" element={<Navigate to="/" />}></Route>
-            </Routes>
           </div>
         </div>
       </div>
+      <Routes>
+        <Route path="/" element={App}>
+          <Route
+            path="/:categoryName"
+            element={
+              <>
+                {visibleShortCuts.length === 0 && filter !== '' && (
+                  <p className={css.message}>
+                    Nothing was found for
+                    <span className={css.filter}>{filter}</span> request.
+                  </p>
+                )}
+                <KeysList
+                  visibleShortCuts={visibleShortCuts}
+                  deleteShortcut={deleteShortcut}
+                />
+              </>
+            }
+          />
+        </Route>
+
+        <Route path="*" element={<Navigate to="/" />}></Route>
+      </Routes>
     </>
   );
 };
