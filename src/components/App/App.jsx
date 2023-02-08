@@ -109,11 +109,12 @@ export const App = () => {
             onSelectCategory={onSelectCategory}
             onSubmit={addCategory}
             deleteCategory={deleteCategory}
+            changeFilter={changeFilter}
           />
           <div>
             {category !== '' && (
               <Form
-                changeFilter={changeFilter}
+                // changeFilter={changeFilter}
                 category={category}
                 onSubmit={addShortcut}
               />

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import css from './Form.module.css';
 import { nanoid } from 'nanoid';
-import { SearchBox } from 'components/SearchBox/SearchBox';
+// import { SearchBox } from 'components/SearchBox/SearchBox';
 // import { AiOutlinePlus } from 'react-icons/ai';
 
 export const Form = ({ changeFilter, category, onSubmit }) => {
@@ -62,7 +62,7 @@ export const Form = ({ changeFilter, category, onSubmit }) => {
 
         <label htmlFor={descriptionId} className={(css.label, css.desc)}>
           Description
-          <textarea
+          <input
             className={(css.input, css.textarea)}
             value={description}
             type="text"
@@ -77,7 +77,7 @@ export const Form = ({ changeFilter, category, onSubmit }) => {
           Add
         </button>
 
-        <SearchBox changeFilter={changeFilter} />
+        {/* <SearchBox changeFilter={changeFilter} /> */}
       </form>
     </section>
   );

@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import css from './Header.module.css';
+
 export const Header = ({ onSelectCategory }) => {
   return (
     <section>

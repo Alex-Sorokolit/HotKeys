@@ -4,7 +4,7 @@ export const SearchBox = ({ changeFilter }) => {
   return (
     <div className={css.searchWrapper}>
       <label className={css.label}>
-        Search
+        Search shortcuts
         <input
           className={css.input}
           type="text"

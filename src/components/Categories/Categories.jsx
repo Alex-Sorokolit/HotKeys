@@ -3,6 +3,7 @@ import css from './Categories.module.css';
 import { useState, useEffect } from 'react';
 import { MenuBtn } from 'components/MenuBtn/MenuBtn';
 import { NavLink, useLocation } from 'react-router-dom';
+import { SearchBox } from 'components/SearchBox/SearchBox';
 
 // import { AiFillDelete } from 'react-icons/ai';
 import { useToggle } from 'hooks/useToggle';
@@ -15,6 +16,7 @@ export const Categories = ({
   onSubmit,
   onSelectCategory,
   deleteCategory,
+  changeFilter,
 }) => {
   const location = useLocation();
   const [activeCategory, setActiveCategory] = useState(null);
@@ -41,6 +43,7 @@ export const Categories = ({
 
   return (
     <section className={css.wrapper}>
+      <SearchBox changeFilter={changeFilter} />
       <h2>Categories</h2>
       <ul className={css.list}>
         {categories.length > 0 &&
