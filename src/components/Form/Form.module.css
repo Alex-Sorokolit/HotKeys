@@ -3,7 +3,7 @@
   display: flex;
   /* grid-template-columns: 2fr 2fr 5fr 1fr; */
   justify-content: flex-start;
-  align-items: flex-end;
+  align-items: flex-start;
   gap: 10px;
   margin-bottom: 10px;
 }
@@ -20,16 +20,25 @@
   border: 1px solid rgb(179, 179, 179);
   border-radius: 4px;
 }
-/* .desc {
+textarea {
+  padding: 0;
+  margin: 0;
+}
+.desc {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
   flex-grow: 1;
-} */
-.inputDesc {
-  /* height: 38px; */
+}
+.textarea {
+  min-height: 38px;
   padding: 5px;
   font-size: 1.5em;
   width: 100%;
   border: 1px solid rgb(179, 179, 179);
   border-radius: 4px;
+  resize: vertical;
 }
 
 .label:focus-within {

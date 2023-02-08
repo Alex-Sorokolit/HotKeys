@@ -60,19 +60,17 @@ export const Form = ({ changeFilter, category, onSubmit }) => {
           </div>
         </label>
 
-        <label htmlFor={descriptionId} className={css.label}>
+        <label htmlFor={descriptionId} className={(css.label, css.desc)}>
           Description
-          <div>
-            <input
-              className={css.input}
-              value={description}
-              type="text"
-              name="description"
-              onChange={handleInputChange}
-              id={descriptionId}
-              required
-            />
-          </div>
+          <textarea
+            className={(css.input, css.textarea)}
+            value={description}
+            type="text"
+            name="description"
+            onChange={handleInputChange}
+            id={descriptionId}
+            required
+          />
         </label>
         <button className={css.button} type="submit">
           {/* <AiOutlinePlus className={css.addIcon} /> */}
