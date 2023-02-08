@@ -24,8 +24,9 @@ export const Form = ({ changeFilter, category, onSubmit }) => {
 
   const handleSubmit = event => {
     event.preventDefault();
+    const id = nanoid();
     const newShortCut = {
-      id: nanoid(),
+      id: id,
       category: category,
       shortcut: shortcut,
       description: description,

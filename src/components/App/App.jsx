@@ -9,6 +9,7 @@ import { Form } from 'components/Form/Form';
 import { Header } from 'components/Header/Header';
 import { Categories } from 'components/Categories/Categories';
 import { KeysList } from 'components/KeyList/KeyList';
+
 // Pages
 import { Route, Routes, Navigate } from 'react-router-dom';
 import css from './App.module.css';
@@ -23,7 +24,7 @@ export const App = () => {
   // По категоріях  shortcuts
   const [categoryShortCuts, setCategoryShortCuts] = useState([]);
   // Фільтровані пошуком shortcuts
-  const [visibleShortCuts, setVisibleShortCuts] = useState([]);
+  const [visibleShortCuts, setVisibleShortCuts] = useSessionStorage('visible');
   // Пошук
   const [filter, setFilter] = useState('');
 
@@ -56,13 +57,15 @@ export const App = () => {
     };
 
     setVisibleShortCuts(getVisibleShortCuts());
-  }, [categoryShortCuts, filter]);
+  }, [categoryShortCuts, filter, setVisibleShortCuts]);
 
   const changeFilter = event => {
     // console.log(event.target.value);
     setFilter(event.target.value);
   };
+
   // ShortCuts ______________________________________________________
+
   function addShortcut(newShortcut) {
     setShortcuts(prevShortcuts => [...prevShortcuts, newShortcut]);
   }
@@ -71,6 +74,7 @@ export const App = () => {
       prevShortcuts.filter(shotCut => shotCut.id !== id)
     );
   }
+
   // Category _____________________________________________________
   function addCategory(id, newCategory) {
     const data = {
@@ -120,7 +124,6 @@ export const App = () => {
               />
             )}
             {/* Keyboard */}
-
             <Routes>
               <Route path="/" element={App}></Route>
               <Route
@@ -136,6 +139,7 @@ export const App = () => {
                     <KeysList
                       visibleShortCuts={visibleShortCuts}
                       deleteShortcut={deleteShortcut}
+                      setShortcuts={setShortcuts}
                     />
                   </>
                 }
