@@ -10,7 +10,7 @@ export const KeysList = ({ visibleShortCuts, deleteShortcut }) => {
     useConfirmToggle(false);
 
   const selectItem = id => {
-    console.log('click');
+    // console.log('click');
     setSelectedItemIdx(id);
   };
   return (

@@ -13,11 +13,11 @@ export const AddCategory = ({ onSubmit }) => {
     const categoryName = form.newCategory.value.trim();
 
     if (categoryName === '') {
-      console.log('write new name list');
+      // console.log('write new name list');
       return;
     }
     if (categoryName === category) {
-      console.log(`${categoryName} already is`);
+      // console.log(`${categoryName} already is`);
       return;
     }
     setCategory(categoryName);
