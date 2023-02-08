@@ -9,7 +9,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #22242b;
+  /* background-color: #22242b; */
   color: white;
 }
 
@@ -29,7 +29,9 @@ code {
 body {
   margin: 0px;
   color: white;
-  background-color: #13161c;
+  background-color: #22242b;
+  /* background-color: #3e414a; */
+  /* background-color: #13161c; */
   /* background-color: white; */
   font-family: var();
   font-weight: 400;
